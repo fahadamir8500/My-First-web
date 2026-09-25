@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en">gittgi
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="first-temp.css">
     <title>Strmo-Template</title>
     <style>
         * {
@@ -16,7 +15,6 @@
             font-family: "Poppins", sans-serif;
             outline: none;
         }
-
         body {
             min-height: 100vh;
             display: flex;
@@ -25,11 +23,9 @@
             background-color: #ffff;
             overflow-x: hidden;
         }
-
         .border {
             border: 1px solid black;
         }
-
         .container {
             max-width: 1200px;
             width: 100%;
@@ -68,56 +64,52 @@
             text-decoration: none;
             color: #ffff;
         }
-.dropdown {
-    position: relative;
-}
+        .dropdown {
+            position: relative;
+        }
+        .dropdown .content {
+            display: block;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 180px;
+            background-color: white;
+            padding: 10px 0;
+            margin: 0;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease;
+            pointer-events: none;
+        }
+        .dropdown:hover .content {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .content li {
+            display: block;
+            width: 100%;
+        }
+        .content li a {
+            display: block;
+            padding: 10px 15px;
+            color: black !important;
+            text-decoration: none;
+            white-space: nowrap;
+        }
 
-.dropdown .content {
-    display: block;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    min-width: 180px;
-    background-color: white;
-    padding: 10px 0;
-    margin: 0;
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s ease;
-    pointer-events: none;
-}
+        .content li a:hover {
+            background-color: #ddd;
+        }
 
-.dropdown:hover .content {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
-
-.content li {
-    display: block;
-    width: 100%;
-}
-
-.content li a {
-    display: block;
-    padding: 10px 15px;
-    color: black !important;
-    text-decoration: none;
-    white-space: nowrap;
-}
-
-.content li a:hover {
-    background-color: #ddd;
-}
         .right-nav {
             display: flex;
-            justify-content: space-evenly;
+            justify-content: flex-end;
             align-items: center;
-            gap: clamp(15px, 5vw, 100px);
+           gap: clamp(30px, 4vw, 80px);
             flex-wrap: wrap;
         }
-        /* Home Dropdown */
         .nav-btn button {
             background-color: white;
             color: #1a4fd6;
@@ -127,17 +119,96 @@
             cursor: pointer;
             font-weight: 600;
         }
-
-        /* se here ------------------------------------------- */
-
         .menu-icon {
             display: none;
-            font-size: 28px;
+            position: relative;
             color: white;
             cursor: pointer;
         }
 
+        .menu-content {
+            position: absolute;
+            display: none;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            padding: 18px 20px;
+        }
 
+        .menu-content a {
+            color: black;
+            text-decoration: none;
+            padding: 12px 16px;
+            border-bottom: 1px solid rgb(65, 62, 62);
+            display: block;
+            font-size: clamp(13px, 2vw, 16px);
+        }
+
+        .menu-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .menu-icon:hover .menu-content {
+            display: block;
+        }
+
+        .plus-icon {
+            font-size: 18px;
+            margin-left: clamp(18px, 2vw, 20px);
+        }
+
+
+        .menu-content div.home-link {
+            display: flex !important;
+            align-items: center;
+            gap: 10px;
+            justify-content: space-between;
+            cursor: pointer;
+            color: black;
+            border-bottom: 1px solid gray;
+        }
+
+        .plus-dropdown {
+            position: relative;
+            display: inline-block;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .plus-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            display: none;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            padding: 18px 20px;
+            list-style-type: none;
+            z-index: 1000;
+        }
+
+        .plus-content li a {
+            color: black;
+            text-decoration: none;
+            padding: 12px 16px;
+            border-bottom: 1px solid rgb(65, 62, 62);
+            display: block;
+            font-size: clamp(13px, 2vw, 16px);
+        }
+
+        .plus-content li a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .plus-dropdown:hover .plus-content {
+            display: block;
+            background-color: red !important;
+        }
+        .menu-content div{
+            padding: 8px;
+        }
 
         .hero-text {
             text-align: center;
@@ -577,7 +648,6 @@
             border-radius: 50%;
 
         }
-
         .triangle-btn {
             height: 0;
             width: 0;
@@ -587,9 +657,6 @@
             margin-left: 4px;
 
         }
-
-        /* problem start from here */
-
         .icon-main-ctrl {
             max-width: 1200px;
             width: 100%;
@@ -948,7 +1015,6 @@
 </head>
 
 <body>
-    <!-- -------------------------------------------------------------------------- -->
     <header class=" header h-bg ">
         <div class="container ctrl " style="padding-top: 30px;">
             <div class="nav flex ">
@@ -965,7 +1031,7 @@
                                 </ul>
                             </li>
                             <li><a href="#">About</a></li>
-                            <li class="dropdown">
+                            <li class=" how-work dropdown">
                                 <a href="#">How it Works</a>
                                 <ul class="content">
                                     <li><a href="#">FAQ</a></li>
@@ -981,29 +1047,54 @@
                     <div class="nav-btn">
                         <button>Login</button>
                     </div>
-                    <div class="menu-icon"><i class="fa-notdog-duo fa-solid fa-bars"
+                    <div class="menu-icon">
+                        <i class="fa-notdog-duo fa-solid fa-bars"
                             style="--fa-primary-color: rgb(255, 255, 255); --fa-secondary-color: rgb(255, 255, 255);"></i>
+                        <div class="menu-content">
+                            <div href="#" class="home-link">Home
+                                <span class="plus-dropdown">
+                                    <i class="fa-solid fa-plus plus-icon" style="color: rgb(0, 0, 0);"></i>
+                                    <ul class="plus-content">
+                                        <li><a href="#">Home page 2</a></li>
+                                        <li><a href="#">Home page 2</a></li>
+                                        <li><a href="#">Netflix Style</a></li>
+                                    </ul>
+                                </span>
+                                </div>
+                            <a href="#">About</a>
+                              <div href="#" class="home-link">How its work
+                                <span class="plus-dropdown">
+                                    <i class="fa-solid fa-plus plus-icon" style="color: rgb(0, 0, 0);"></i>
+                                    <ul class="plus-content">
+                                        <li><a href="#">FAQ</a></li>
+                                        <li><a href="#">Support & sloution</a></li>
+                                        <li><a href="#">My Account</a></li>
+                                    </ul>
+                                </span>
+                             </div>
+                            <a href="#">pricing</a>
+                            <a href="#">contect</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="hero-text">
-                <p class="welcome">WELCOME TO STREAMO</p>
-                <h1>Best Streaming Site</h1>
-                <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                    incididunt ut laqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip</p>
-                <div class="btn-main">
-                    <button class="primary-btn btn">Learn More</button>
-                    <button class="secondary-btn btn">Try Free Trial</button>
-                </div>
-                <div class="laptop-img"></div>
-            </div>
-        </div>
-    </header>
+                     <div class="hero-ctrl container">
+                    <div class="hero-text">
+                        <p class="welcome">WELCOME TO STREAMO</p>
+                        <h1>Best Streaming Site</h1>
+                        <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                            incididunt ut laqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                            ut
+                            aliquip</p>
+                        <div class="btn-main">
+                            <button class="primary-btn btn">Learn More</button>
+                            <button class="secondary-btn btn">Try Free Trial</button>
+                        </div>
+                        <div class="laptop-img"></div>
+                    </div>
+                   </div>
+                </header>
     <main class="bg">
         <div class="container  center">
-            <!-- moving this to see change -->
-            <!-- <div class="laptop-img"></div> -->
         </div>
         <div class="circles container center">
             <div class="circle">
@@ -1055,7 +1146,7 @@
                         consequat. Duis
                         aute irure dolor in reprehenderit in voluptate velit esse cillum dis iste na</p>
                     <div class="btn-main">
-                        <button class="primary-btn btn box-shadow  noflex-wrap">Learn More</button>
+                        <button class="primary-btn btn box-shadow  noflex-wrap ">Learn More</button>
                         <button class="secondary-btn btn box-shadow noflex-wrap">Try Free Trial</button>
                     </div>
                 </div>
